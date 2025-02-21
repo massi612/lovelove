@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Per Erika ❤️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffcccb;
+            font-family: Arial, sans-serif;
+        }
+
+        .heart-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: heartbeat 1s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 50px;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.2) rotate(-45deg); }
+            100% { transform: scale(1) rotate(-45deg); }
+        }
+
+        .message {
+            font-size: 24px;
+            color: #d80032;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        .choice-container {
+            text-align: center;
+        }
+
+        .question {
+            font-size: 22px;
+            font-weight: bold;
+            color: #a00026;
+            margin-bottom: 15px;
+        }
+        .per {
+            font-size: 26px;
+            font-weight: bold;
+            color: #8f0a0a;
+            margin-bottom: 20px;
+        }
+        .per::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: #d80032;
+        margin: 5px auto 0;
+        border-radius: 2px;
+    }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #d80032;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #a00026;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="choice-container" id="choiceContainer">
+        <p class="per">Per Erika la ragazza più bella del mondo! </p>
+        <p class="question">Quanto mi ami? </p>
+        <button onclick="showLove()">Tanto ❤️</button>
+        <button onclick="showSadness()">Poco 💔</button>
+    </div>
+
+    <div class="heart-container" id="heartContainer">
+        <div class="heart"></div>
+        <div class="message">❤️ Anche io ti amo tantooo ❤️</div>
+    </div>
+
+    <div class="message" id="sadMessage" style="display: none; color: black;"> Ah... 😢😢</div>
+
+    <script>
+        function showLove() {
+            document.getElementById("choiceContainer").style.display = "none";
+            document.getElementById("heartContainer").style.display = "flex";
+        }
+
+        function showSadness() {
+            document.getElementById("choiceContainer").style.display = "none";
+            document.getElementById("sadMessage").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
